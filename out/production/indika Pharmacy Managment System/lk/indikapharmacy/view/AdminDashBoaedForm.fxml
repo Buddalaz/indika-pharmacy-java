@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="805.0" prefWidth="1479.0" style="-fx-background-color: rgb(164, 176, 190); -fx-background-radius: 32;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.indikapharmacy.controller.AdminDashBoaedFormController">
+   <children>
+      <AnchorPane layoutX="59.0" layoutY="36.0" prefHeight="133.0" prefWidth="356.0" style="-fx-background-color: rgb(255, 255, 255);">
+         <children>
+            <AnchorPane prefHeight="133.0" prefWidth="157.0" style="-fx-background-color: linear-gradient(to top left, #0033cc 15%, #33ccff 107%);;">
+               <children>
+                  <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="44.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/pill.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <Label layoutX="178.0" layoutY="28.0" text="MEDICINE">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMedicineCount" layoutX="226.0" layoutY="80.0">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="500.0" layoutY="36.0" prefHeight="133.0" prefWidth="385.0" style="-fx-background-color: rgb(255, 255, 255);">
+         <children>
+            <Label layoutX="204.0" layoutY="22.0" text="CUSTOMER">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+            <AnchorPane prefHeight="133.0" prefWidth="157.0" style="-fx-background-color: linear-gradient(to top left, #0033cc 15%, #33ccff 107%);;">
+               <children>
+                  <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="47.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/customer.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <Label fx:id="lblCustomerCount" layoutX="260.0" layoutY="80.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="983.0" layoutY="36.0" prefHeight="133.0" prefWidth="385.0" style="-fx-background-color: rgb(255, 255, 255);">
+         <children>
+            <AnchorPane prefHeight="133.0" prefWidth="157.0" style="-fx-background-color: linear-gradient(to top left, #0033cc 15%, #33ccff 107%);;">
+               <children>
+                  <ImageView fitHeight="39.0" fitWidth="56.0" layoutX="59.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/return.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <Label layoutX="218.0" layoutY="20.0" text="ORDERS">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblOrderCount" layoutX="254.0" layoutY="81.0" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tblStock" layoutX="118.0" layoutY="423.0" prefHeight="358.0" prefWidth="715.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="StockID" />
+          <TableColumn prefWidth="75.0" text="BatchID" />
+            <TableColumn prefWidth="75.0" text="SupplyID" />
+            <TableColumn prefWidth="75.0" text="ItemID" />
+            <TableColumn prefWidth="75.0" text="Quentity" />
+            <TableColumn prefWidth="75.0" text="Payment" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <AnchorPane layoutX="118.0" layoutY="203.0" prefHeight="200.0" prefWidth="1107.0" style="-fx-background-color: linear-gradient(to top left, #0033cc 15%, #33ccff 107%);; -fx-background-radius: 32;">
+         <children>
+            <JFXTextField fx:id="txtStockID" labelFloat="true" layoutX="54.0" layoutY="40.0" promptText="SupplyID" />
+            <JFXTextField fx:id="txtItemID" labelFloat="true" layoutX="54.0" layoutY="115.0" promptText="ItemID" />
+            <JFXTextField fx:id="txtBatchID" labelFloat="true" layoutX="314.0" layoutY="40.0" promptText="BatchID" />
+            <JFXTextField fx:id="txtQty" labelFloat="true" layoutX="314.0" layoutY="116.0" promptText="Quentity" />
+            <JFXTextField fx:id="txtSuppId" labelFloat="true" layoutX="575.0" layoutY="42.0" promptText="SupplyID" />
+            <JFXTextField fx:id="txtPayment" labelFloat="true" layoutX="575.0" layoutY="119.0" promptText="Payment" />
+            <JFXButton buttonType="RAISED" layoutX="810.0" layoutY="40.0" onAction="#addStockOnAction" prefHeight="31.0" prefWidth="90.0" style="-fx-background-color: linear-gradient(to left, #99ccff 15%, #ffffff 107%);;" text="Add" />
+            <JFXButton buttonType="RAISED" layoutX="956.0" layoutY="40.0" onAction="#deleteOnAction" prefHeight="31.0" prefWidth="90.0" style="-fx-background-color: linear-gradient(to left, #99ccff 15%, #ffffff 107%);;" text="Delete" />
+            <JFXButton buttonType="RAISED" layoutX="810.0" layoutY="119.0" onAction="#updateOnAction" prefHeight="31.0" prefWidth="90.0" style="-fx-background-color: linear-gradient(to left, #99ccff 15%, #ffffff 107%);;" text="Update" />
+            <JFXButton buttonType="RAISED" layoutX="956.0" layoutY="119.0" onAction="#searchOnAction" prefHeight="31.0" prefWidth="90.0" style="-fx-background-color: linear-gradient(to left, #99ccff 15%, #ffffff 107%);;" text="Search" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

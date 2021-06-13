@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptOrderDetails" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c8903bc6-1e79-4a83-9636-d0fa07ee1103">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="orderId" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     medicineorders.`orderID` AS medicineorders_orderID,
+     medicineorders.`date` AS medicineorders_date,
+     medicineorders.`userID` AS medicineorders_userID,
+     medicinedetails.`quentity` AS medicinedetails_quentity,
+     medicinedetails.`total` AS medicinedetails_total,
+     medicine.`description` AS medicine_description,
+     medicine.`unitPrice` AS medicine_unitPrice,
+     medicineorders.`total` AS medicineorders_total,
+     medicineorders.`cash` AS medicineorders_cash,
+     medicineorders.`balance` AS medicineorders_balance
+FROM
+     `medicineorders` medicineorders INNER JOIN `medicinedetails` medicinedetails ON medicineorders.`orderID` = medicinedetails.`orderID`
+     INNER JOIN `medicine` medicine ON medicinedetails.`itemID` = medicine.`itemID`
+WHERE
+     `medicineorders`.`orderID` = $P{orderId}]]>
+	</queryString>
+	<field name="medicineorders_orderID" class="java.lang.String"/>
+	<field name="medicineorders_date" class="java.sql.Date"/>
+	<field name="medicineorders_userID" class="java.lang.String"/>
+	<field name="medicinedetails_quentity" class="java.lang.Integer"/>
+	<field name="medicinedetails_total" class="java.math.BigDecimal"/>
+	<field name="medicine_description" class="java.lang.String"/>
+	<field name="medicine_unitPrice" class="java.math.BigDecimal"/>
+	<field name="medicineorders_total" class="java.math.BigDecimal"/>
+	<field name="medicineorders_cash" class="java.math.BigDecimal"/>
+	<field name="medicineorders_balance" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="92" splitType="Stretch">
+			<staticText>
+				<reportElement x="181" y="62" width="178" height="20" uuid="b615e497-203c-4b50-bd42-75c70a767c08"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INDIKA PHARMACY PLC]]></text>
+			</staticText>
+			<image>
+				<reportElement x="244" y="6" width="75" height="49" uuid="1448be48-2f3f-4a78-8224-b1be93f25360"/>
+				<imageExpression><![CDATA["D:\\IJSE\\JAVA\\Final Project\\INDIKA PHARMACHY PLC\\indika Pharmacy Managment System\\src\\lk\\indikapharmacy\\assets\\logo-pharmacy-png-favpng-wqN3RkFh6GsviFssfVsmdecmi.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="58" splitType="Stretch">
+			<textField>
+				<reportElement x="66" y="5" width="68" height="20" uuid="e5bc7647-bdd4-4ec6-9bb3-f465a7832f64"/>
+				<textFieldExpression><![CDATA[$F{medicineorders_orderID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="5" width="54" height="20" uuid="ed946a7b-671b-4c3e-b5bb-1316025ad5e2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order ID:-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="506" y="5" width="36" height="20" uuid="ccd1e4ff-816f-40b1-905b-3ebd05b0a095"/>
+				<textFieldExpression><![CDATA[$F{medicineorders_userID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="444" y="5" width="58" height="20" uuid="6efd096e-6850-4af3-8466-543d38ae2567"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee:-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="503" y="28" width="36" height="17" uuid="0c288a77-e8bb-4a25-b204-e72a1d6a31c2"/>
+				<textFieldExpression><![CDATA[$F{medicineorders_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="464" y="28" width="39" height="17" uuid="72c8f174-494b-484e-a906-12ed0bf32613"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :-]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="3859039e-ad4d-4aee-8f68-331645070e28"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="151" y="2" width="100" height="20" uuid="5a1ecc02-4c0d-45f4-9930-0300b342e8f9"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="302" y="2" width="100" height="20" uuid="29f9bb7c-7f57-4204-a911-2b885b50e19d"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unit Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="2" width="100" height="20" uuid="bb292c69-765b-4f64-9d98-4e7b8763f025"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="ef85fd18-41b5-4d07-abab-9b5fff3e8e2c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{medicine_description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="0" width="100" height="20" uuid="18a72f89-373f-4c37-9530-73b3282e5395"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{medicinedetails_quentity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="0" width="100" height="20" uuid="f3ceb546-7a76-4fef-923a-763d14ca12d1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{medicine_unitPrice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="b9f33fa8-442e-4791-9bcf-c22b28be2477"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{medicinedetails_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="11" width="332" height="27" uuid="7eb28bb0-f555-4eb2-98c6-7b77ff575c6d"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Design By Sycor ART Software Solutions]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="90">
+			<textField>
+				<reportElement x="503" y="14" width="44" height="20" uuid="eb725ebf-515a-40ff-9673-8e99bb7726c2"/>
+				<textFieldExpression><![CDATA[$F{medicineorders_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="456" y="12" width="35" height="20" uuid="1e8398f9-8667-4f51-bd9a-a716b658c637"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="503" y="37" width="44" height="20" uuid="cd88b1df-62c9-48a4-8682-64bd6ad136a2"/>
+				<textFieldExpression><![CDATA[$F{medicineorders_cash}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="456" y="35" width="35" height="20" uuid="f599031c-e422-4376-ba8a-dacd6f5dd043"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cash]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="436" y="59" width="54" height="20" uuid="f2fc71d5-27bc-4fb9-9192-60ddd298fb58"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="502" y="61" width="45" height="20" uuid="78b64ce5-1584-4506-907a-808bf66b10c6"/>
+				<textFieldExpression><![CDATA[$F{medicineorders_balance}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="430" y="56" width="123" height="1" uuid="edf64508-9203-49d6-87d8-d8a07bff56d4"/>
+			</line>
+			<line>
+				<reportElement x="430" y="83" width="118" height="1" uuid="05e516c9-4725-4219-85bf-ed6e0e4f4e1d"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>
