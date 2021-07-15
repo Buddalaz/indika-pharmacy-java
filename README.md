@@ -1,0 +1,1 @@
+# indika-pharmacy-java
